@@ -94,7 +94,7 @@ header{position:sticky;top:0;z-index:20;padding:22px 24px 0;background:var(--gla
 .hint-swipe .ico{width:11px;height:11px}
 
 /* ---------- feature band (swipe) ---------- */
-.car{margin:16px 24px 0;border:1px solid var(--hair);overflow:hidden;touch-action:pan-y;position:relative;
+.car{margin:16px 0 0;border:1px solid var(--hair);overflow:hidden;touch-action:pan-y;position:relative;
   background-color:var(--glass);background-image:var(--sheen);
   box-shadow:0 1px 0 var(--edge-2) inset,0 24px 40px -34px rgba(74,58,42,.6);
   -webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur)}
@@ -122,40 +122,47 @@ header{position:sticky;top:0;z-index:20;padding:22px 24px 0;background:var(--gla
 
 /* ---------- feed ---------- */
 main{flex:1;padding:0 24px}
-.sec{display:flex;align-items:baseline;justify-content:space-between;margin:22px 0 0;
+.sec{display:flex;align-items:baseline;justify-content:space-between;margin:26px 0 0;
   padding-bottom:8px;border-bottom:1px solid var(--ink)}
 .sec h3{font-family:var(--serif);font-size:15px;font-weight:600;letter-spacing:.02em}
 .sec .count{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--sub)}
-.feed{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px;
-  background:transparent;padding:10px 0 4px}
-.post{position:relative;padding:18px 18px 14px;cursor:pointer;
+.feed{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px;
+  background:transparent;padding:12px 0 8px;align-items:stretch}
+.post{position:relative;padding:0;cursor:pointer;overflow:hidden;
   background-color:var(--glass);background-image:var(--sheen);
   border:1px solid var(--edge);box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 18px 30px -28px rgba(74,58,42,.55);
   -webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur);
-  display:flex;flex-direction:column;transition:background-color .16s,transform .16s}
-.post:hover{background-color:var(--glass-2)}
+  display:flex;flex-direction:column;transition:background-color .16s,box-shadow .16s}
+.post:hover{background-color:var(--glass-2);box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 22px 34px -26px rgba(74,58,42,.6)}
 .post:first-child{animation:none}
-.who{display:flex;align-items:center;gap:8px;margin-bottom:10px}
-.avatar{width:26px;height:26px;display:grid;place-items:center;font-family:var(--serif);font-size:12px;
-  border:1px solid var(--rule);background:var(--paper);color:var(--sub)}
+/* 配图：固定 16:10，永远同一高度，保证整行基线对齐 */
+.ph{position:relative;margin:0;aspect-ratio:16/10;overflow:hidden;background:var(--paper-2);
+  border-bottom:1px solid var(--hair)}
+.ph img{display:block;width:100%;height:100%;object-fit:cover;
+  filter:saturate(.94) contrast(1.02);transition:transform .5s cubic-bezier(.2,0,.2,1)}
+.post:hover .ph img{transform:scale(1.02)}
+.ptag{position:absolute;left:10px;top:10px;height:21px;padding:0 7px;display:inline-flex;align-items:center;
+  font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--ink);
+  background:rgba(250,249,246,.82);border:1px solid rgba(255,255,255,.7);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.pbody{padding:13px 15px 0;display:flex;flex-direction:column;flex:1;min-width:0}
+.post h4{font-family:var(--serif);font-size:15px;font-weight:600;line-height:1.48;letter-spacing:-.1px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.post .txt{font-size:12.2px;line-height:1.72;color:var(--sub);margin-top:6px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.who{display:flex;align-items:center;gap:7px;margin:auto 0 0;padding-top:11px}
+.avatar{width:24px;height:24px;display:grid;place-items:center;font-family:var(--serif);font-size:11.5px;
+  border:1px solid var(--rule);background:rgba(255,255,255,.55);color:var(--sub);flex:none}
 .who .nm{display:flex;flex-direction:column;gap:2px;min-width:0}
-.who .nm b{font-size:11.5px;font-weight:600;display:flex;align-items:center;gap:4px}
-.who .nm b .ico{width:11px;height:11px;color:var(--signal);stroke-width:1.8}
-.who .nm span{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--faint)}
+.who .nm b{font-size:11.5px;font-weight:600;display:flex;align-items:center;gap:4px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.who .nm b .ico{width:11px;height:11px;color:var(--signal);stroke-width:1.8;flex:none}
+.who .nm span{font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--faint);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .who .tag{margin-left:auto;font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--sub);
-  border:1px solid var(--rule);padding:2px 6px}
-.post h4{font-family:var(--serif);font-size:15.5px;font-weight:600;line-height:1.5;letter-spacing:-.1px;
-  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.post .txt{font-size:12.5px;line-height:1.8;color:var(--sub);margin-top:6px;
-  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.thumb{position:relative;margin-top:12px;height:104px;border:1px solid var(--edge);overflow:hidden;
-  background-color:rgba(255,255,255,.34);box-shadow:var(--hl);
-  background-image:repeating-linear-gradient(45deg,rgba(17,17,16,.04) 0 1px,transparent 1px 8px)}
-.thumb .tlabel{position:absolute;left:10px;top:9px;font-family:var(--mono);font-size:8.5px;letter-spacing:.22em;color:var(--faint)}
-.thumb .tmark{position:absolute;right:10px;bottom:8px;color:var(--faint)}
-.thumb .tmark .ico{width:22px;height:22px;stroke-width:1.1}
-.post .foot{display:flex;align-items:center;gap:14px;margin-top:auto;padding-top:12px;
-  border-top:1px solid var(--rule)}
+  border:1px solid var(--rule);padding:2px 6px;flex:none}
+.post .foot{display:flex;align-items:center;gap:13px;margin-top:11px;padding:10px 15px 11px;
+  border-top:1px solid var(--hair)}
 .act{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:10.5px;color:var(--sub);
   background:none;border:0;padding:0;cursor:pointer;letter-spacing:.02em;transition:color .12s}
 .act .ico{width:13px;height:13px;stroke-width:1.5}
@@ -235,6 +242,9 @@ main{flex:1;padding:0 24px}
 .switch.on i{background:var(--ink)}
 .switch.on i::after{content:"";position:absolute;left:4px;top:1px;width:4px;height:8px;
   border-right:1.5px solid var(--paper);border-bottom:1.5px solid var(--paper);transform:rotate(40deg)}
+.ph-detail{position:relative;margin:14px 0 0;aspect-ratio:16/10;overflow:hidden;background:var(--paper-2);
+  border:1px solid var(--hair)}
+.ph-detail img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.95) contrast(1.02)}
 .safe{margin-top:16px;padding:12px 14px;border:1px solid var(--edge);border-left:2px solid var(--signal);
   background:rgba(255,255,255,.34);box-shadow:var(--hl)}
 .safe b{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:9px;letter-spacing:.2em;
@@ -439,27 +449,31 @@ const KEY='pi.v4';
 const CATS=[{k:'全部',i:'grid'},{k:'二手书',i:'book'},{k:'竞赛',i:'flag'},{k:'课程',i:'cap'},
   {k:'闲置',i:'bag'},{k:'搭子',i:'users'},{k:'求助',i:'help'}];
 
+/* 配图：Openverse 上可商用的真实照片，逐张存本地 img/，署名见 img/credit.json */
+const PHOTO={'二手书':'img/p2.jpg','竞赛':'img/p2.jpg','求助':'img/p3.jpg','课程':'img/p4.jpg',
+             '闲置':'img/p5.jpg','搭子':'img/p6.jpg'};
+function imgFor(cat){ return PHOTO[cat] || 'img/p1.jpg'; }
 function seedPosts(){
   return [
     {id:'p1',au:'林小满',cat:'二手书',title:'高数同济第七版 上下册，30 块带走',body:'上册有少量铅笔划线，下册干净。本部三食堂面交，可以当场翻看，不满意不要也行。',
-     price:30,old:89,place:'本部三食堂',ago:'12 分钟前',verified:true,likes:14,art:0,
+     price:30,old:89,place:'本部三食堂',ago:'12 分钟前',verified:true,likes:14,img:'img/p1.jpg',
      cm:[{n:'程野',t:'想要下册，单出吗？'},{n:'林小满',t:'单出 15，你说时间。'}]},
     {id:'p2',au:'数学建模协会',cat:'竞赛',title:'数学建模国赛校内组队，还差 1 位写作',body:'目标国三冲国二，近三年真题已整理共享。每周二、四晚上在图书馆四楼讨论，能坚持到 9 月就够。',
-     price:0,place:'图书馆四楼',ago:'1 小时前',verified:true,likes:32,art:1,
+     price:0,place:'图书馆四楼',ago:'1 小时前',verified:true,likes:32,img:'img/p2.jpg',
      cm:[{n:'匿名',t:'大二的可以吗？'}]},
     {id:'p3',au:'匿名同学',cat:'求助',title:'有谁明天早上顺路带一盒感冒药到 5 号楼',body:'室友发低烧，我早八走不开。钱当面给，谢谢。',
-     price:0,place:'5 号楼',ago:'2 小时前',verified:false,likes:6,art:null,cm:[]},
+     price:0,place:'5 号楼',ago:'2 小时前',verified:false,likes:6,img:'img/p3.jpg',cm:[]},
     {id:'p4',au:'周夕',cat:'课程',title:'线代期末串讲录播，押题卷两套',body:'本院学长讲的，3 小时过近 5 年真题题型。买过的同学说比自己啃书快很多。',
-     price:9.9,old:49,place:'线上',ago:'3 小时前',verified:true,likes:21,art:null,
+     price:9.9,old:49,place:'线上',ago:'3 小时前',verified:true,likes:21,img:'img/p4.jpg',
      cm:[{n:'匿名',t:'有讲义吗？'}]},
     {id:'p5',au:'沈青',cat:'闲置',title:'宿舍小冰箱 45L，毕业清出',body:'用了两年，制冷正常、很静。四楼没电梯，能自己搬的来，可以帮你抬到楼下。',
-     price:150,old:499,place:'东区 6 号楼',ago:'5 小时前',verified:true,likes:9,art:2,cm:[]},
+     price:150,old:499,place:'东区 6 号楼',ago:'5 小时前',verified:true,likes:9,img:'img/p5.jpg',cm:[]},
     {id:'p6',au:'匿名同学',cat:'搭子',title:'找考研搭子，图书馆四楼，早八到晚十',body:'数一加英语，互相打卡监督，摸鱼就别来了。我一般坐靠窗第三排。',
-     price:0,place:'图书馆四楼',ago:'昨天',verified:false,likes:11,art:null,cm:[]},
+     price:0,place:'图书馆四楼',ago:'昨天',verified:false,likes:11,img:'img/p6.jpg',cm:[]},
     {id:'p7',au:'摄影社',cat:'搭子',title:'周末扫街，缺一个愿意被拍的模特',body:'机器我出，出片免费给你，时间你定。上次拍的那组在社里挺受欢迎。',
-     price:0,place:'老城区',ago:'昨天',verified:true,likes:18,art:3,cm:[]},
+     price:0,place:'老城区',ago:'昨天',verified:true,likes:18,img:'img/p7.jpg',cm:[]},
     {id:'p8',au:'何一',cat:'竞赛',title:'蓝桥杯 Python 校内集训，免费',body:'每周三晚 7 点，机房 A302，零基础可以来，讲历年真题。带电脑就行。',
-     price:0,place:'A302',ago:'2 天前',verified:true,likes:26,art:null,cm:[]}
+     price:0,place:'A302',ago:'2 天前',verified:true,likes:26,img:'img/p8.jpg',cm:[]}
   ];
 }
 function load(k,d){ try{ const v=localStorage.getItem(KEY+'.'+k); return v?JSON.parse(v):d; }catch(e){ return d; } }
@@ -542,23 +556,23 @@ function filtered(){
 
 function postCard(p){
   const liked=S.me.likes.indexOf(p.id)>-1;
-  const cIcon = (CATS.find(function(c){ return c.k===p.cat; })||{i:'grid'}).i;
-  const art = (p.art===null||p.art===undefined) ? ''
-    : `<div class="thumb">
-         <span class="tlabel">${p.cat} · 无图</span><span class="tmark">${svg(cIcon)}</span>
-       </div>`;
+  const img = p.img || imgFor(p.cat);
   return `<article class="post" data-pid="${p.id}">
-    <div class="who">
-      <div class="avatar">${initials(p.au)}</div>
-      <div class="nm">
-        <b>${esc(p.au)} ${p.verified?svg('shield'):''}</b>
-        <span>${p.verified?'在校生 · 已认证':'未认证'} · ${p.ago}</span>
+    <figure class="ph">
+      <img src="${img}" alt="${esc(p.title)}" width="640" height="400" loading="lazy" decoding="async">
+      <span class="ptag">${p.cat}</span>
+    </figure>
+    <div class="pbody">
+      <h4>${esc(p.title)}</h4>
+      <div class="txt">${esc(p.body)}</div>
+      <div class="who">
+        <div class="avatar">${initials(p.au)}</div>
+        <div class="nm">
+          <b>${esc(p.au)} ${p.verified?svg('shield'):''}</b>
+          <span>${p.verified?'已认证':'未认证'} · ${p.ago} · ${esc(p.place||'')}</span>
+        </div>
       </div>
-      <div class="tag">${p.cat}</div>
     </div>
-    <h4>${esc(p.title)}</h4>
-    <div class="txt">${esc(p.body)}</div>
-    ${art}
     <div class="foot">
       <button class="act ${liked?'on':''}" data-like="${p.id}">${svg('heart')}${p.likes + (liked?1:0)}</button>
       <button class="act" data-open="${p.id}">${svg('chat')}${p.cm.length}</button>
@@ -612,7 +626,8 @@ function renderMine(){
     <div class="row-item" data-act="safety"><div class="t"><b>防骗中心</b><span>三条铁律 + 举报记录</span></div>${svg('chev')}</div>
     <div class="row-item" data-act="verify"><div class="t"><b>在校生认证</b><span>${S.me.verified?'已认证':'未认证，需 2 步'}</span></div>${svg('chev')}</div>
   </div>
-  <div class="tiny">数据只存在这台设备的浏览器里，换设备不会同步。正式版接微信云开发后由服务端保管。</div>`;
+  <div class="tiny">数据只存在这台设备的浏览器里，换设备不会同步。正式版接微信云开发后由服务端保管。</div>
+  <div class="tiny" style="margin-top:6px">配图是 Openverse 上 CC0 / CC-BY 的实拍照片，逐张署名在 img/credit.json。</div>`;
 }
 
 /* ================= 视图：防骗 ================= */
@@ -766,6 +781,7 @@ function openPost(id){
       <div class="tag">${p.cat}</div>
     </div>
     <h3>${esc(p.title)}</h3>
+    <figure class="ph-detail"><img src="${p.img||imgFor(p.cat)}" alt="${esc(p.title)}" width="880" height="550" decoding="async"></figure>
     <p class="body">${esc(p.body)}</p>
     <div class="spec">
       <div><span>价格</span><b>${p.price?('¥'+p.price):'免费 · 互助'}</b></div>
@@ -962,7 +978,7 @@ function openPublish(){
     const id='n'+Date.now();
     S.posts.unshift({id:id,cat:S.draft.cat,au: anon? '匿名同学' : (S.me.name||'我'),
       title:title, body:body, price: priceRaw? parseFloat(priceRaw):0, place: place||'面议',
-      ago:'刚刚', verified:S.me.verified, likes:0, art:null, cm:[], by:'me'});
+      ago:'刚刚', verified:S.me.verified, likes:0, img:imgFor(S.draft.cat), cm:[], by:'me'});
     saveAll(); closeSheet(); S.view='wall'; S.cat='全部'; S.q=''; renderStrip(); render();
     const el=document.querySelector('[data-pid="'+id+'"]');
     if(el){ el.classList.add('flash'); el.scrollIntoView({behavior:'smooth',block:'center'}); }

@@ -1,0 +1,58 @@
+{
+ "p2": {
+  "src": "https://cdn.stocksnap.io/img-thumbs/960w/VQXYE2ZEHC.jpg",
+  "title": "Team Meeting",
+  "creator": "Startup Stock Photos",
+  "license": "cc0",
+  "source": "stocksnap"
+ },
+ "p4": {
+  "src": "https://live.staticflickr.com/3034/2965625438_266e481d09_b.jpg",
+  "title": "Furiously Factoring",
+  "creator": "CarbonNYC [in SF!]",
+  "license": "by",
+  "source": "flickr"
+ },
+ "p5": {
+  "src": "https://live.staticflickr.com/6149/6040059574_7b58c0fa47_b.jpg",
+  "title": "Refrigerator",
+  "creator": "Joanna Bourne",
+  "license": "by",
+  "source": "flickr"
+ },
+ "p8": {
+  "src": "https://live.staticflickr.com/7213/6887025506_38362b2f59_b.jpg",
+  "title": "Spring 2012 Student Hackathon Coding",
+  "creator": "hackNY",
+  "license": "by-sa",
+  "source": "flickr"
+ },
+ "p1": {
+  "src": "https://api.openverse.org/v1/images/ba9427f8-d543-4d04-90b3-30c18367fd89/thumb/",
+  "title": "Old books",
+  "creator": "24oranges.nl",
+  "license": "by-sa",
+  "source": "flickr"
+ },
+ "p3": {
+  "src": "https://api.openverse.org/v1/images/a0c528ff-2292-4f64-b701-5812345c6ded/thumb/",
+  "title": "Meds Box",
+  "creator": "ninachildish",
+  "license": "by-nd",
+  "source": "flickr"
+ },
+ "p6": {
+  "src": "https://api.openverse.org/v1/images/8321d12f-94d1-46e3-a0d7-b17b03c827ff/thumb/",
+  "title": "Carrier Library Study Room",
+  "creator": "taberandrew",
+  "license": "by",
+  "source": "flickr"
+ },
+ "p7": {
+  "src": "https://api.openverse.org/v1/images/e35454ad-7c7e-48d3-9664-225b0aeca3b4/thumb/",
+  "title": "London Bridge Black & Blue",
+  "creator": "Waterford_Man",
+  "license": "by",
+  "source": "flickr"
+ }
+}
