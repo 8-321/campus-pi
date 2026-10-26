@@ -225,8 +225,8 @@ main{flex:1;padding:0}
 .mask{position:fixed;inset:0;z-index:40;background:rgba(4,8,16,.62);opacity:0;pointer-events:none;
   -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:opacity .2s}
 .mask.on{opacity:1;pointer-events:auto}
-.sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;width:min(640px,100%);margin:0 auto;
-  max-height:92dvh;overflow-y:auto;padding:0 22px 26px;border-radius:var(--r-l) var(--r-l) 0 0;
+.sheet{--sp:22px;position:fixed;left:0;right:0;bottom:0;z-index:50;width:min(640px,100%);margin:0 auto;
+  max-height:92dvh;overflow-y:auto;padding:0 var(--sp) 26px;border-radius:var(--r-l) var(--r-l) 0 0;
   background:rgba(14,22,38,.86);border:1px solid var(--edge);border-bottom:0;
   -webkit-backdrop-filter:var(--blur-l);backdrop-filter:var(--blur-l);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 -30px 70px -30px rgba(0,0,0,.95);
@@ -252,6 +252,11 @@ main{flex:1;padding:0}
 .btn.line:hover{background:var(--g2);border-color:var(--edge-hi)}
 .btn:disabled{opacity:.4;cursor:not-allowed}
 .acts2{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:16px}
+.sheet .acts2{position:sticky;bottom:-1px;z-index:2;margin:18px calc(-1 * var(--sp)) -26px;
+  padding:12px var(--sp) calc(18px + env(safe-area-inset-bottom));
+  border-top:1px solid var(--hair);
+  background:linear-gradient(180deg,rgba(14,22,38,0) 0%,rgba(14,22,38,.9) 40%,rgba(11,18,31,.97) 100%);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
 .field{margin-bottom:13px}
 .field>span{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.22em;color:var(--faint);
   margin-bottom:7px}
@@ -365,8 +370,8 @@ main{flex:1;padding:0}
 .tiny{font-family:var(--mono);font-size:9.5px;line-height:1.95;color:var(--faint);letter-spacing:.04em;
   margin-top:16px}
 
-.sheet-bar{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;
-  height:46px;margin:0 -22px;padding:0 22px;border-bottom:1px solid var(--hair);
+.sheet-bar{position:sticky;top:0;z-index:3;display:flex;align-items:center;justify-content:space-between;
+  height:46px;margin:0 calc(-1 * var(--sp));padding:0 var(--sp);border-bottom:1px solid var(--hair);
   background:rgba(14,22,38,.72);-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur);
   border-radius:var(--r-l) var(--r-l) 0 0}
 .sheet-bar .mono-lbl{font-family:var(--mono);font-size:8.5px;letter-spacing:.24em;color:var(--faint)}
